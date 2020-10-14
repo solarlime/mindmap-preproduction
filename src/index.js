@@ -4,9 +4,11 @@ console.log('Works!');
 
 const clickables = document.querySelectorAll('.clickable');
 clickables.forEach((item) => item.addEventListener('click', (event) => {
-  event.preventDefault();
-  event.target.classList.toggle('no-animation');
-  event.target.nextElementSibling.classList.toggle('hidden');
+  if (event.target.tagName !== 'A') {
+    event.preventDefault();
+    event.target.classList.toggle('no-animation');
+    event.target.nextElementSibling.classList.toggle('hidden');
+  }
 }));
 
 const button = document.querySelector('.button');
